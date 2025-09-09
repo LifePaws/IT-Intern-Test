@@ -17,6 +17,12 @@
   - Screenshots (e.g. logged into dashboard)
   - Any scripts or commands you used
 
+## Bonus (optional)
+- Write a small script to automate part of your setup (e.g. plugin install, password reset)  
+- Explain how you would handle a backup larger than the upload limit  
+- Suggest one or two improvements to make WordPress more secure  
+- Add a quick health check (command or script) to show the site is running
+
 ## What we look at
 - Can you set up the environment  
 - How you handle the import and possible errors  
