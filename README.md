@@ -4,7 +4,7 @@
 - Run a local WordPress site on your computer  
 - Install and activate the **All-in-One WP Migration** plugin
 - Import this backup:  
-  [lifepaws-demo.wpress](https://drive.google.com/file/d/1QQpLb5ewIx9_S2anX1hjjvenYQkH9zMw/view?usp=drive_link)  
+  [lifepaws-demo.wpress](https://drive.google.com/file/d/1Tn1eefwYSOFt2UgLs3cDh9zAGgRcvAgB/view?usp=drive_link)  
 - Find the user `intern_test` and reset the password so you can log in  
 - Document your steps and how you fixed any issues in /docs, or add screenshots of your solutions in /screenshots
 
