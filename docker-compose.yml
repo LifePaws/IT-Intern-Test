@@ -16,6 +16,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
       - ./lifepaws-demo.wpress:/var/www/html/lifepaws-demo.wpress
+      - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
     depends_on:
       - db
     networks:
