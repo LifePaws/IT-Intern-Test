@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: lifepaws-wordpress
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./lifepaws-demo.wpress:/var/www/html/lifepaws-demo.wpress
+      - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+    depends_on:
+      - db
+    networks:
+      - wordpress_network
+
+  db:
+    image: mysql:8.0
+    container_name: lifepaws-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - wordpress_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: lifepaws-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: wordpress
+      PMA_PASSWORD: wordpress_password
+    depends_on:
+      - db
+    networks:
+      - wordpress_network
+
+volumes:
+  wordpress_data:
+  mysql_data:
+
+networks:
+  wordpress_network:
+    driver: bridge
